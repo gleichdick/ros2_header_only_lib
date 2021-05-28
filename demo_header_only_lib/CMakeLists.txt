@@ -18,10 +18,11 @@ target_include_directories(${PROJECT_NAME} INTERFACE
 target_link_libraries(${PROJECT_NAME} INTERFACE OpenSSL::SSL)
 
 install(TARGETS ${PROJECT_NAME}
-  EXPORT ${PROJECT_NAME}
+  EXPORT "export_${PROJECT_NAME}"
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib
+  INCLUDES DESTINATION include
 )
 
 install(DIRECTORY include/${PROJECT_NAME}/
@@ -43,5 +44,5 @@ ament_export_dependencies(
   OpenSSL
 )
 #ament_export_libraries(${PROJECT_NAME})
-ament_export_targets(${PROJECT_NAME})
+ament_export_targets("export_${PROJECT_NAME}")
 ament_package()
