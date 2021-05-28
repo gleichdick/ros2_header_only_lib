@@ -12,9 +12,7 @@ find_package(demo_header_only_lib REQUIRED)
 add_executable(demoexe
   src/demoexe.cpp
 )
-ament_target_dependencies(demoexe
-  demo_header_only_lib
-)
+target_link_libraries(demoexe PUBLIC demo_header_only_lib::demo_header_only_lib)
 
 install(TARGETS
   demoexe
